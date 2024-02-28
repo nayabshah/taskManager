@@ -1,0 +1,36 @@
+### Create Task (Only title is required)
+POST http://localhost:5000/api/tasks
+Content-Type: application/json
+
+{
+    "Title":"Test title",
+    "Tags":[{"id":"API","text":"API"},{"id":"New","text":"New"},{"id":"Source","text":"Source"},{"id":"Blog","text":"Blog"}],
+    "DueDate":"01-03-2024",
+    "Description":"Test Api",
+    "AssignedTo":"John Deo",
+    "Priority":"high"
+}
+
+### Edit Task
+PUT http://localhost:5000/api/tasks/65de0be449df84c73a9889f2
+Content-Type: application/json
+
+{
+   
+     "Priority":"low"
+}
+
+### Delete Task
+DELETE http://localhost:5000/api/tasks/65de0b8e49df84c73a9889e4
+
+### Get tasks with filters
+GET http://localhost:5000/api/tasks?status=completed
+
+####
+GET http://localhost:5000/api/tasks?priority=low
+
+###
+GET http://localhost:5000/api/tasks?limit=20&page=1
+
+###
+GET http://localhost:5000/api/tasks?tags=new,blog
